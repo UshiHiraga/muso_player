@@ -8,22 +8,18 @@
     
     <!-- Insertar -->
     <link rel="stylesheet" href="css/index.css">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="shortcut icon" href="icons/favicon.svg" type="image/svg+xml">
     <script src="script/index.js" defer></script>
 </head>
 <body>
 
     <nav class="opciones">
-        <input type="file" accept="video/*" id="load_video">
-        <button>Lorem, ipsum.</button>
-        <button>Lorem, ipsum.</button>
-        <button>Lorem, ipsum.</button>
-        <button>Lorem, ipsum.</button>
-        <button>Lorem, ipsum.</button>
-        <button>Lorem, ipsum.</button>
-        <button>Lorem, ipsum.</button>
+        <label>Abrir<input style="display: none;" type="file" accept="video/*" id="load_video" multiple></label>
+        <button>Opciones</button>
     </nav>
 
-    <aside class="cola_videos">
+    <aside id="cola_videos" class="cola_videos">
         <div>a</div>
         <div>a</div>
         <div>a</div>
@@ -34,7 +30,7 @@
     </aside>
 
     <main class="main_elements">
-        <video id="main_video_element" controls preload="auto" poster="a.jpg"></video>
+        <video id="main_video_element" controls preload="auto"></video>
         <div>
             <button>Atrás</button>
             <button>Play/Pause</button>
