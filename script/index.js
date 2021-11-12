@@ -1,5 +1,5 @@
 const main_video = document.getElementById("main_video_element");
-
+const main_input = document.createElement("input");
 
 function LoadVideoFromFile(e){
     window.array_videos = [];
@@ -14,6 +14,11 @@ function LoadVideoFromFile(e){
     if(!main_video.playsInline) main_video.setAttribute("src", window.array_videos[0]);
 };
 
+function MainCreate(){
+    main_input.setAttribute("type", "file");
+    main_input.setAttribute("multiple", "");
+    main_input.setAttribute("accept", "video/*");
+}
 
 
 function CreateCardElement(info){
@@ -25,7 +30,13 @@ function CreateCardElement(info){
     console.log(info);
 }
 
+function InitLoad(){
+    main_input.addEventListener("change", LoadVideoFromFile);
+    main_input.click();
+}
+
 function KeyboardEvents(e){
+    e.preventDefault();
     console.log(e);
     switch(e.code){
         case "KeyA": if(e.shiftKey && e.ctrlKey) document.getElementById("load_video").click(); break;
@@ -38,8 +49,9 @@ function KeyboardEvents(e){
             else main_video.pause();
         break;
     };
-}
+};
 
-document.getElementById("load_video").addEventListener("change", LoadVideoFromFile);
+document.getElementById("open_video_button").addEventListener("click", InitLoad);
 window.document.addEventListener("keypress", KeyboardEvents);
-navigator.serviceWorker.register("sw.js");
+MainCreate();
+// navigator.serviceWorker.register("sw.js");

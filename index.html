@@ -5,38 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Principal</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/computer_index_page.css" media="(min-width: 1024px)">
+    <link rel="stylesheet" href="css/phone_index_page.css" media="(min-width: 320px) and (max-width: 1023px)">
     
-    <!-- Insertar -->
-    <link rel="stylesheet" href="css/index.css">
+    <!-- Scripts -->
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="shortcut icon" href="icons/favicon.svg" type="image/svg+xml">
     <script src="script/index.js" defer></script>
 </head>
 <body>
 
-    <nav class="opciones">
-        <label>Abrir<input style="display: none;" type="file" accept="video/*" id="load_video" multiple></label>
-        <button>Opciones</button>
-    </nav>
+<nav>
+    <img src="icons/favicon.svg" alt="Icono" class="main_icono">
+    <button id="open_video_button">Abrir</button>
+    <button>Opciones</button>
+</nav>
 
     <aside id="cola_videos" class="cola_videos">
-        <div>a</div>
-        <div>a</div>
-        <div>a</div>
-        <div>a</div>
-        <div>a</div>
-        <div>a</div>
-        <div>a</div>
+        <div class="card_element"><p>Título vídeo</p></div>
     </aside>
 
     <main class="main_elements">
-        <video id="main_video_element" controls preload="auto"></video>
-        <div>
-            <button>Atrás</button>
-            <button>Play/Pause</button>
-            <button>Sig</button>
-        </div>
+        <video id="main_video_element" preload="auto" controls></video>
     </main>
-    
 </body>
 </html>
