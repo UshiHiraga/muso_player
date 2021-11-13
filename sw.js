@@ -2,24 +2,24 @@ const CACHE_VERSION = "0.0.1";
 async function InstallEvent(e){
     const CACHE_LIST = [
         // Estilos CSS
-        "/css/computer_index_page.css",
-        "/css/phone_index_page.css",
-        "/css/colors_scheme.css",
+        "./css/computer_index_page.css",
+        "./css/phone_index_page.css",
+        "./css/colors_scheme.css",
         // Iconos
-        "/icons/favicon.svg",
-        "/icons/icon-192x192.png",
-        "/icons/icon-256x256.png",
-        "/icons/icon-384x384.png",
-        "/icons/icon-512x512.png",
+        "./icons/favicon.svg",
+        "./icons/icon-192x192.png",
+        "./icons/icon-256x256.png",
+        "./icons/icon-384x384.png",
+        "./icons/icon-512x512.png",
         // Scripts
-        "/script/index.js",
-        "/script/NodeListPrototype.js",
-        "/script/StoragePrototype.js",
+        "./script/index.js",
+        "./script/NodeListPrototype.js",
+        "./script/StoragePrototype.js",
         // HTML Pages
-        "/index.html",
-        "/404.html",
-        "/manifest.webmanifest",
-        "/"
+        "./index.html",
+        "./404.html",
+        "./manifest.webmanifest",
+        "./"
     ];
 
     e.waitUntil(
