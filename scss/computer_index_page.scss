@@ -6,15 +6,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-:root{
-    --altura_opciones_bar: 30px;
-    --background_color: #afafaf;
-    --button_shadow_color: #9c9c9c;
-    --radius_border_value: 10px;
-}
-
 body {
-    margin: 0px 10px;
     background-color: var(--background_color);
     display: grid;
     grid-gap: 5px;
@@ -27,7 +19,10 @@ body {
 
 nav { // Barra de opciones.
     grid-area: option_bar;
+    padding: 2px 5px;
+    color: white;
     display: inline-flex;
+    background-color: var(--nav_color_background);
     .main_icono {
         display: block;
         min-height: 12px;
@@ -58,10 +53,11 @@ nav { // Barra de opciones.
 }   
 
 aside {
+    margin: 0px 5px;
     --internal_element_padding: 10px;
     border-radius: var(--radius_border_value);
     grid-area: lateral_bar;
-    border: 1px solid gray;
+    border: 1px solid var(--border_queue_color);
 
     h1 {
         border-radius: var(--radius_border_value);
@@ -75,6 +71,7 @@ aside {
         padding: 0px var(--internal_element_padding);
         font-size: 0.8rem;
         border-left: 2px solid transparent;
+        margin: 5px 0px;
 
         &.actual {
             border-left: 2px solid green;
@@ -86,6 +83,7 @@ aside {
 };
 
 main {
+    margin: 0px 5px;
     grid-area: super_bar;
     video {
         width: 100%;

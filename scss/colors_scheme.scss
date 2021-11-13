@@ -1,0 +1,29 @@
+@media (prefers-color-scheme: dark){
+    :root{
+        --altura_opciones_bar: 30px;
+        --background_color: #2e2e2e;
+        --button_shadow_color: #202020;
+        --radius_border_value: 10px;
+        --nav_color_background: #151515;
+        --border_queue_color: #535353;
+    }
+
+    *{
+        color: white;
+    }
+
+    nav > .main_icono {
+        filter: grayscale(1);
+    }
+}
+
+@media(prefers-color-scheme: light){
+    :root{
+        --altura_opciones_bar: 30px;
+        --background_color: #dddddd;
+        --button_shadow_color: #a7a7a7;
+        --radius_border_value: 10px;
+        --nav_color_background: #353535;
+        --border_queue_color: #a7a7a7;
+    }
+}
