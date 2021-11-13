@@ -68,6 +68,7 @@ function VideoEnded(e, prev){
     actual.classList.remove("actual");
     let video_url = sig.getAttribute("video_url");
     main_video.setAttribute("src", video_url);
+    if(!main_video.isPlaying()) main_video.play();
     sig.classList.add("actual");
 };
 
