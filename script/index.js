@@ -71,19 +71,45 @@ function VideoEnded(e, prev){
     sig.classList.add("actual");
 };
 
+async function LoadVideoFromSystemFileMethod(launchParams){
+    console.log("Archivos traidos desde el sistema.");
+    let files = launchParams.files.map(async function(element){
+        let inner_file = await element.getFile();
+        console.log(inner_file);
+        let new_url = URL.createObjectURL(inner_file);
+        console.log(new_url);
+        CreateCardElement(inner_file, new_url);
+        return new_url;
+    });
+
+    // launchParams.files.forEach(async function(element){
+    //     let inner_file = await element.getFile();
+    //     let new_url = URL.createObjectURL(inner_file);
+    //     CreateCardElement(inner_file, new_url);
+    //     window.array_videos.push(new_url);
+
+    // });
+
+    let array_full = await Promise.allSettled(files);
+    window.array_videos = array_full.map((e) => e.value);
+    console.log(files);
+
+
+    if(!main_video.getAttribute("src")){
+        main_video.setAttribute("src", window.array_videos[0]);
+        document.getElementsByClassName("card_element")[0].classList.add("actual");
+    };
+};
+
 document.getElementById("open_video").addEventListener("change", LoadVideoFromFile);
-document.body.addEventListener("keydown", KeyboardEvents);
+// document.body.addEventListener("keydown", KeyboardEvents);
 main_video.addEventListener("ended", VideoEnded);
 window.array_videos = [];
+navigator.serviceWorker.register("./sw.js");
 
 HTMLVideoElement.prototype.isPlaying = function(){
     if(this.currentTime > 0 && !this.paused && !this.ended && this.readyState > 2) return true
     else return false;
 };
 
-
-if ("launchQueue" in window) {
-    launchQueue.setConsumer(async launchParams => {
-        console.log(launchParams);
-    });
-}
+if("launchQueue" in window) launchQueue.setConsumer(LoadVideoFromSystemFileMethod);
