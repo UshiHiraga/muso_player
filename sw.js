@@ -1,4 +1,4 @@
-const CACHE_VERSION = "0.0.1";
+const CACHE_VERSION = "0.0.3";
 async function InstallEvent(e){
     const CACHE_LIST = [
         // Estilos CSS
@@ -31,6 +31,17 @@ async function InstallEvent(e){
     );
 };
 
+function ActivateEvent(event){
+    event.waitUntil(
+        caches.keys()
+        .then(function(cacheNames){
+            return Promise.all(
+                cacheNames.map((cacheName) => {if(cacheName != CACHE_VERSION) return caches.delete(cacheName)})
+            );
+        })
+    );
+};
+
 function FetchEvent(event) {
     event.respondWith(            
         caches.match(event.request).then(function(response) {
@@ -47,7 +58,8 @@ function FetchEvent(event) {
             });
         })
     );
-}
+};
 
 self.addEventListener("install", InstallEvent);
+self.addEventListener("activate", ActivateEvent);
 self.addEventListener("fetch", FetchEvent);
