@@ -4,6 +4,7 @@ async function InstallEvent(e){
         // Estilos CSS
         "/css/computer_index_page.css",
         "/css/phone_index_page.css",
+        "/css/colors_scheme.css",
         // Iconos
         "/icons/favicon.svg",
         "/icons/icon-192x192.png",
@@ -18,8 +19,7 @@ async function InstallEvent(e){
         "/index.html",
         "/404.html",
         "/manifest.webmanifest",
-        "/",
-        ""
+        "/"
     ];
 
     e.waitUntil(
@@ -48,8 +48,6 @@ function FetchEvent(event) {
         })
     );
 }
-
-
 
 self.addEventListener("install", InstallEvent);
 self.addEventListener("fetch", FetchEvent);
