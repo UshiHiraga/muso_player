@@ -102,14 +102,12 @@ async function LoadVideoFromSystemFileMethod(launchParams){
 };
 
 document.getElementById("open_video").addEventListener("change", LoadVideoFromFile);
-// document.body.addEventListener("keydown", KeyboardEvents);
+document.body.addEventListener("keydown", KeyboardEvents);
 main_video.addEventListener("ended", VideoEnded);
 window.array_videos = [];
-navigator.serviceWorker.register("./sw.js");
-
 HTMLVideoElement.prototype.isPlaying = function(){
     if(this.currentTime > 0 && !this.paused && !this.ended && this.readyState > 2) return true
     else return false;
 };
-
+if("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js");
 if("launchQueue" in window) launchQueue.setConsumer(LoadVideoFromSystemFileMethod);
