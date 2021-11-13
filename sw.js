@@ -1,4 +1,4 @@
-const CACHE_VERSION = "0.0.4-beta";
+const CACHE_VERSION = "0.0.5-beta";
 async function InstallEvent(e){
     const CACHE_LIST = [
         // Estilos CSS
