@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Principal</title>
+    <title>Reproductor de vídeo</title>
 
     <!-- Estilos -->
     <link rel="stylesheet" href="css/computer_index_page.css" media="(min-width: 1024px)">
@@ -13,22 +13,23 @@
     <!-- Scripts -->
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="shortcut icon" href="icons/favicon.svg" type="image/svg+xml">
+    <script src="script/StoragePrototype.js"></script>
+    <script src="/script/NodeListPrototype.js"></script>
     <script src="script/index.js" defer></script>
 </head>
 <body>
 
 <nav>
     <img src="icons/favicon.svg" alt="Icono" class="main_icono">
-    <button id="open_video_button">Abrir</button>
-    <button>Opciones</button>
+    <label>Abrir<input id="open_video" type="file" multiple accept="video/*"></label>
 </nav>
 
-    <aside id="cola_videos" class="cola_videos">
-        <div class="card_element"><p>Título vídeo</p></div>
-    </aside>
-
-    <main class="main_elements">
-        <video id="main_video_element" preload="auto" controls></video>
-    </main>
+<aside class="cola_videos">
+    <h1>Lista de reproducción</h1>
+    <div id="cola_videos"></div>
+</aside>
+<main class="main_elements">
+    <video id="main_video_element" preload="auto" controls></video>
+</main>
 </body>
 </html>

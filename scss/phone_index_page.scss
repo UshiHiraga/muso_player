@@ -15,11 +15,13 @@ body {
     background-color: var(--background_color);
     display: grid;
     grid-gap: 5px;
-    grid-template-columns: 0.3fr 1fr;
-    grid-template-rows: minmax(var(--altura_opciones_bar), auto) 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(var(--altura_opciones_bar), auto) 1fr aut0;
     grid-template-areas:
-    "option_bar  option_bar"
-    "lateral_bar super_bar";
+    "option_bar"
+    "super_bar"
+    "lateral_bar";
+
 }
 
 nav { // Barra de opciones.
